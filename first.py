@@ -1,6 +1,40 @@
 from functions import inputfun
 
-inputfun()
+class points():#customclass
+    def __init__(self,x,y):#__init__calls function when trying to create point. 1st parameter represents itself in functions that call themselves
+        self.x=x
+        self.y=y
+        self.list=[]
+        self.list.append((x,y))
+    def add_points(self,x,y):
+        self.list.append((x,y))
+
+def pointinp():
+    p=points(5,6)
+    p.add_points(2,3)
+    p.add_points(10,11)
+    print(p.list)
+    print(p.list[2])
+
+def decor(samplefun):#decorator
+    def subdecor():
+        print("func running...")
+        samplefun()
+        print("func done.")
+    return subdecor
+
+@decor
+def HW():
+    print("Hello, World!")
+
+def exceptions():
+    x = int(input("num:"))
+    y = int(input("num:"))
+    try:
+        r = x/y
+        print(f"{x}/{y} = {r}")
+    except: #except ZeroDivisionError:
+        print("error")
 
 def main():
     a=28        #int
@@ -41,5 +75,24 @@ def main():
     namedict["Anita"]="Cute"
     print(namedict["Anita"])
 
+    peopledict=[
+        {"name":"B","class":"1"},
+        {"name":"A","class":"2"},
+        {"name":"C","class":"3"}
+    ]
+
+    #def sortppl(dict):
+    #return dict["name"]
+
+    #peopledict.sort(key=sortppl)
+    #print(peopledict)
+
+    peopledict.sort(key=lambda sortppl:sortppl["name"])
+    print(peopledict)
+
 if __name__ == "__main__":
     main()
+    pointinp()
+    HW()
+    inputfun()
+    exceptions()
