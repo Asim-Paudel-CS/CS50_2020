@@ -1,0 +1,11 @@
+{% extends "tasksapp/layout.html" %}
+{% block body %}
+    <ul class="cen">
+        {% for task in tasksvar %}
+        <li>{{task}}</li>
+        {% empty %}
+        <li>No Tasks</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasksapp:add' %}">Add Task</a>
+{% endblock %}

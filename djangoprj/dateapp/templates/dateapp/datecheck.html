@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Date Current
+        </title>
+        <link href="{% static 'dateapp/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="cen">{{ye}}-{{mo}}-{{da}}</div>
+        <div class="cen">{{ho}}-{{mi}}-{{se}}</div>
+        {% if boolvariable %}
+            <div class="cen">Happy New Year</div>
+        {% else %}
+            <div class="cen"> Have a good day.</div>
+        {% endif %}
+    </body>
+</html>

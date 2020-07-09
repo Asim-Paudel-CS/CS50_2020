@@ -1,0 +1,12 @@
+{% extends "tasksapp/layout.html" %}
+{% block body %}
+    <h1>Add task</h1>
+    <form action="{% url 'tasksapp:add' %}" method="post">
+        {% csrf_token %}
+        <!--<input type="text" name="newtask">-->
+        {{newformvar}}
+        <input type="submit"> 
+    </form>
+    <a href="{% url 'tasksapp:homepagetask' %}"> View Tasks </a>
+    <br>
+{% endblock %}
